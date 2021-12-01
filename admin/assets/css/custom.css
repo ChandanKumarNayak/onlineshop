@@ -1,0 +1,25 @@
+.tbl-inside-img {
+    display: block;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+.error-msg {
+    display: none;
+    color: white;
+    border: 1px solid red;
+    background: red;
+    border-radius: 5px;
+    padding-left: 10px;
+    height: 30px;
+  }
+  .success-msg {
+    display: none;
+    color: white;
+    border: 1px solid green;
+    background: green;
+    border-radius: 5px;
+    padding-left: 10px;
+    height: 30px;
+  }
