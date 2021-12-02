@@ -260,6 +260,7 @@ $(document).ready(function() {
                 }
                 if (data.status == 'brand-success') {
                     $('#brand_form').trigger('reset');
+                    $('#select_exp_of').val('').trigger('chosen:updated');
                     $('#modal-add-brand,.modal-backdrop, .error-msg').hide();
                     Toast.fire({
                         icon: 'success',
