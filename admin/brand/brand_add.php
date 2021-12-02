@@ -24,8 +24,10 @@ if (!isset($_SESSION['ADMIN_ID'])) {
 
     $brand_logo = get_safe_value($_FILES['brand_logo']['name']);
     $brand_name = get_safe_value($_POST['brand_name']);
+    if(isset($_POST['brand_exporter_of'])){
     $brand_exporter_of = $_POST['brand_exporter_of'];
-    $brand_exporter_off = implode(',', $brand_exporter_of);
+    $brand_exp_of_new = get_safe_value(implode(',', $brand_exporter_of));
+    }
     $brand_status = get_safe_value($_POST['brand_status']);
 
     if(!empty($brand_logo) && !empty($brand_name) && !empty($brand_exporter_of) && !empty($brand_status)){
@@ -41,7 +43,7 @@ if (!isset($_SESSION['ADMIN_ID'])) {
         $msgArr = array("status" => "exist-error", "msg" => "Brand already exists.");
     } else {
 
-        $sql_brand_insert = "INSERT INTO brand (brand_logo,brand_name,brand_exporter_of,brand_status) values ('$brand_logo_new','$brand_name','$brand_exporter_off','$brand_status')";
+        $sql_brand_insert = "INSERT INTO brand (brand_logo,brand_name,brand_exporter_of,brand_status) values ('$brand_logo_new','$brand_name','$brand_exp_of_new','$brand_status')";
         $query_brand_insert = mysqli_query($db,$sql_brand_insert);
         if($query_brand_insert){
             move_uploaded_file($_FILES['brand_logo']['tmp_name'],$brand_logo_upload_path);
